@@ -45,15 +45,41 @@ DB_NAME=fetchtest
 
 You can use these to make requests:
 
-# Get all users
+# GET all users
 http://localhost:8080/users
 
-# Get one user by _id
+# GET one user by _id
 http://localhost:8080/users/<_id>
 
+# POST a new user
+http://localhost:8080/users
+expected Body:
+{
+    "first_name": "Maikel",
+    "last_name": "Martinez",
+    "dob": "02/22/1903",
+    "email": "Ireallylikepizza@test.com"
+}
+returns:
+{
+    "_id": "617f5d236eb5d3394ae3838b",
+    "first_name": "Maikel",
+    "last_name": "Martinez",
+    "dob": "02/22/1903",
+    "points": 0,
+    "email": "Ireallylikepizza@test.com",
+    "registered": "2021-11-01T03:21:07.863Z"
+}
 
+# POST transaction record and add points to a user
+http://localhost:8080/transactions/<_id>
+The payer is generated randomly for this project.
 
+# GET all transactions for a user
+http://localhost:8080/transactions/<_id>
+Returns an array of transactions.
 
+# PUT spend points
 
 
 

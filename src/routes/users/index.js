@@ -33,8 +33,23 @@ router.post('/', async (req, res) => {
       if(user){
          res.status(400).send('User already exists')
       } else {
-         const newUser = await db.collection('users').insertOne(req.body)
-         res.send(newUser.ops[0])
+         const addingUser ={
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            dob: req.body.dob,
+            points: 0,
+            email: req.body.email,
+            registered: new Date().toISOString()
+         }
+         //add user to database if all fields are filled out
+         if(addingUser.first_name && addingUser.last_name && addingUser.dob && addingUser.email){
+            await db.collection('users').insertOne(addingUser)
+            //send user back to client
+            const user = await db.collection('users').findOne({email: req.body.email})
+            res.send(user)
+         } else {
+            res.status(400).send('Please fill out all fields')
+         }
       }
    } catch(err){
       res.status(500).send(err)
