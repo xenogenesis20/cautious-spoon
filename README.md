@@ -4,7 +4,7 @@ Instructions:
 Git clone https://github.com/xenogenesis20/cautious-spoon.git
 CD into the directory and use $ code .  to open VScode or open it in your preferred editor. 
 
-This is how I cloned the repo to my system using Git Bash. 
+This is how I clone the repos to my system using Git Bash. 
 $ pwd    // shows your current directory. 
 Example output: /c/Users/xenog
 
