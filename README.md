@@ -36,7 +36,7 @@ DB_USER=test
 DB_USER_PASSWORD=root
 DB_CONN_STRING=mongodb+srv://test:root@cluster0.zcgbm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 DB_NAME=fetchtest
-------------------------
+
 
 
 # Install dependencies using $ npm install
