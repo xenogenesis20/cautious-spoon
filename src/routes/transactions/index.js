@@ -72,7 +72,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// get points to spend from req.body, check if user.points > req.body.points , get transactions for user sorted by timeStamp oldest to newest, subtract points from user.points, subtract points from transactions.points until req.body.points is 0 without making transaction.points negative , return changed transactions
+
 router.put("/:id", async (req, res, next) => {
    try {
       const db = await getDb();
