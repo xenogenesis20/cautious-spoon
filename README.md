@@ -28,10 +28,10 @@ $ code .    // opens the folder in VScode.
 
 # You need to make a .env file with the following information:
 
-# Api
+Api
 PORT=8080
 
-# Database
+Database
 DB_USER=test
 DB_USER_PASSWORD=root
 DB_CONN_STRING=mongodb+srv://test:root@cluster0.zcgbm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
