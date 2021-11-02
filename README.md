@@ -26,7 +26,7 @@ $ cd cautious-spoon/    // switch to the newly cloned repo directory
 $ code .    // opens the folder in VScode. 
 
 
-# You need to make a .env file with the following information:
+# You need to make a .env file in the root directory with the following information:
 
 Api
 PORT=8080
@@ -43,7 +43,9 @@ DB_NAME=fetchtest
 
 # Start the server using $ npm start
 
-You can use these to make requests:
+# Endpoints: 
+PostMan collection schema can be imported using this file:
+https://drive.google.com/file/d/1Fk1-JQPOGBEKncUZx_0VpUBLGrLYycMi/view?usp=sharing
 
 # GET all users
 http://localhost:8080/users
@@ -77,10 +79,16 @@ The payer is generated randomly for this project.
 
 # GET all transactions for a user
 http://localhost:8080/transactions/<_id>
-Returns an array of transactions.
+Returns an array of all transactions.
+
+# GET points balance for user payers
+http://localhost:8080/transactions/<_id>/balance
+Returns the points balance of each payer for the user.
 
 # PUT spend points
-
-
-
+http://localhost:8080/transactions/spend/<_id>
+Expected body: 
+{
+    points: <number>
+}
 
