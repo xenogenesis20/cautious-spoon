@@ -109,6 +109,6 @@ http://localhost:8080/transactions/spend/<_id>
 Expected body: 
 ```json
 {
-    points: integer
+    "points": integer
 }
 ```
