@@ -177,7 +177,7 @@ http://localhost:8080/transactions/spend/<_id>
 Expected body(points to spend): 
 ```json
 {
-    "points": 1234
+    "points": 2500
 }
 ```
 Returns:
