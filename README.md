@@ -55,10 +55,46 @@ https://drive.google.com/file/d/1Fk1-JQPOGBEKncUZx_0VpUBLGrLYycMi/view?usp=shari
 ```
 http://localhost:8080/users
 ```
+Returns:
+```json
+[
+    {
+        "_id": "617f5d236eb5d3394ae3838b",
+        "first_name": "Maikel",
+        "last_name": "Martinez",
+        "dob": "02/22/1903",
+        "points": 0,
+        "email": "Ireallylikepizza@test.com",
+        "registered": "2021-11-01T03:21:07.863Z"
+    },
+    {
+        "_id": "6180250242f9a9e440d54fca",
+        "first_name": "Chester",
+        "last_name": "Tester",
+        "dob": "01/01/1903",
+        "points": 5631,
+        "email": "chestertesting@test.com",
+        "registered": "2021-11-01T17:33:54.522Z"
+    }
+]
+```
 # GET one user by _id
 ```
 http://localhost:8080/users/<_id>
 ```
+Returns:
+```json
+{
+    "_id": "617f5d236eb5d3394ae3838b",
+    "first_name": "Maikel",
+    "last_name": "Martinez",
+    "dob": "02/22/1903",
+    "points": 0,
+    "email": "Ireallylikepizza@test.com",
+    "registered": "2021-11-01T03:21:07.863Z"
+}
+```
+
 # POST a new user
 ```
 http://localhost:8080/users
@@ -72,7 +108,7 @@ expected Body:
     "email": "Ireallylikepizza@test.com"
 }
 ```
-returns:
+Returns:
 ```json
 {
     "_id": "617f5d236eb5d3394ae3838b",
@@ -85,22 +121,54 @@ returns:
 }
 ```
 # POST transaction record and add points to a user
+The payer is generated randomly for this project.
 ```
 http://localhost:8080/transactions/<_id>
 ```
-The payer is generated randomly for this project.
-
+```json
+{
+    "payer": "Amazon",
+    "points": 82,
+    "timeStamp": "2021-11-02T00:08:39.165Z",
+    "userId": "617f5d236eb5d3394ae3838b",
+    "_id": "618081872e6f0e3cf6018eaf"
+}
+```
 # GET all transactions for a user
 ```
 http://localhost:8080/transactions/<_id>
 ```
-Returns an array of all transactions.
+Returns:
+```json
+[
+    {
+        "_id": "618094df93bf2a64178a21cc",
+        "payer": "Apple",
+        "points": 3387,
+        "timeStamp": "2021-11-02T01:31:10.971Z",
+        "userId": "617f5d236eb5d3394ae3838b"
+    },
+    {
+        "_id": "618094e093bf2a64178a21cd",
+        "payer": "Sony",
+        "points": 9679,
+        "timeStamp": "2021-11-02T01:31:12.005Z",
+        "userId": "617f5d236eb5d3394ae3838b"
+    }
+]
+```
 
 # GET points balance for user payers
 ```
 http://localhost:8080/transactions/<_id>/balance
 ```
-Returns the points balance of each payer for the user.
+Returns:
+```json
+{
+    "Apple": 3387,
+    "Sony": 9679
+}
+```
 
 # PUT spend points
 ```
@@ -111,4 +179,17 @@ Expected body(points to spend):
 {
     "points": 1234
 }
+```
+Returns:
+```json
+[
+    {
+        "payer": "Apple",
+        "points": "-806"
+    },
+    {
+        "payer": "Sony",
+        "points": "-1694"
+    }
+]
 ```
