@@ -106,9 +106,9 @@ Returns the points balance of each payer for the user.
 ```
 http://localhost:8080/transactions/spend/<_id>
 ```
-Expected body: 
+Expected body(points to spend): 
 ```json
 {
-    "points": integer
+    "points": 1234
 }
 ```
